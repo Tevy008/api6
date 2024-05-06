@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import telegram
 
 
-def downloading_a_comic_book(url, path):
+def download_a_comic_book(url, path):
     response = requests.get(url)
     response.raise_for_status()
     with open(path, 'wb') as file:
@@ -29,7 +29,7 @@ def get_comment():
     comment = data["alt"]
     title = data["title"]
     comic_url = data["img"]
-    downloading_a_comic_book(comic_url, f"{title}.png")
+    download_a_comic_book(comic_url, f"{title}.png")
     return comment, title
 
 
